@@ -11,15 +11,16 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
-
 import de.shop.R;
+import de.shop.ui.artikel.Artikel;
 import de.shop.ui.bestellung.Bestellungen;
 import de.shop.ui.kunde.Kunden;
 
 public class MainNav extends ListFragment implements OnItemClickListener {
 	public enum NavType {
 		KUNDEN(0),
-		BESTELLUNGEN(1);
+		BESTELLUNGEN(1),
+		ARTIKEL(2);
 		
 		private int value;
 		
@@ -35,6 +36,7 @@ public class MainNav extends ListFragment implements OnItemClickListener {
 			switch (value) {
 				case 0:	return KUNDEN;
 				case 1:	return BESTELLUNGEN;
+				case 2: return ARTIKEL;
 				default: return KUNDEN;
 			}
 		}
@@ -44,7 +46,7 @@ public class MainNav extends ListFragment implements OnItemClickListener {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		final String[] values = { getString(R.string.s_nav_kunden), getString(R.string.s_nav_bestellungen) };
+		final String[] values = { getString(R.string.s_nav_kunden), getString(R.string.s_nav_bestellungen), getString(R.string.s_nav_artikel) };
 		// ArrayAdapter erstellt eine Liste von TextView-Elementen
         final ListAdapter listAdapter = new ArrayAdapter<String>(getActivity(),
 																 // <android-sdk>\platforms\android-16\data\res\layout\simple_list_item_1.xml
@@ -79,6 +81,10 @@ public class MainNav extends ListFragment implements OnItemClickListener {
 				
 			case BESTELLUNGEN:
 				neuesFragment = new Bestellungen();
+				break;
+			
+			case ARTIKEL:
+				neuesFragment = new Artikel();
 				break;
 			default:
 				return;

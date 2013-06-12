@@ -5,5 +5,6 @@
 	<string name="s_hallo">Hello!</string>
 	<string name="s_nav_kunden">Customers</string>
 	<string name="s_nav_bestellungen">Orders</string>
+	<string name="s_nav_artikel">Articles</string>
     
 </resources>
