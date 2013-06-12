@@ -1,5 +1,10 @@
 package de.shop.ui.main;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import android.app.Fragment;
 import android.app.ListFragment;
 import android.os.Bundle;
@@ -9,8 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
+import android.widget.SimpleAdapter;
 import de.shop.R;
 import de.shop.ui.artikel.Artikel;
 import de.shop.ui.bestellung.Bestellungen;
@@ -44,19 +49,48 @@ public class MainNav extends ListFragment implements OnItemClickListener {
 	
 	private static final String LOG_TAG = MainNav.class.getSimpleName();
 	
+	private static final String ICON = "icon";
+	private static final String TEXT = "text";
+	private static final String[] FROM = { ICON, TEXT };
+	private static final int[] TO = { R.id.nav_icon, R.id.nav_text };
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		final String[] values = { getString(R.string.s_nav_kunden), getString(R.string.s_nav_bestellungen), getString(R.string.s_nav_artikel) };
-		// ArrayAdapter erstellt eine Liste von TextView-Elementen
-        final ListAdapter listAdapter = new ArrayAdapter<String>(getActivity(),
-																 // <android-sdk>\platforms\android-16\data\res\layout\simple_list_item_1.xml
-                                                                 android.R.layout.simple_list_item_1,
-                                                                 android.R.id.text1,
-                                                                 values);
+		final ListAdapter listAdapter = createListAdapter();        
         setListAdapter(listAdapter);
         
 		return super.onCreateView(inflater, container, savedInstanceState);
 	}
+	
+	private ListAdapter createListAdapter() {
+		final NavType[] navValues = NavType.values();
+		final List<Map<String, Object>> navList = new ArrayList<Map<String, Object>>(navValues.length);
+		for (NavType nav : navValues) {
+			final Map<String, Object> navItem = new HashMap<String, Object>(FROM.length, 1); // max 2 Eintraege, bis zu 100 % Fuellung
+			switch (nav) {
+				case KUNDEN:
+					navItem.put(ICON, R.drawable.ic_kunden);
+					navItem.put(TEXT, getString(R.string.s_nav_kunden));
+					break;
+				
+				case BESTELLUNGEN:
+					navItem.put(ICON, R.drawable.ic_bestellungen);
+					navItem.put(TEXT, getString(R.string.s_nav_bestellungen));
+					break;
+				case ARTIKEL:
+					navItem.put(TEXT, getString(R.string.s_nav_artikel));
+					break;
+					
+				default:
+					Log.e(LOG_TAG, nav.toString() + " wird nicht in die Navigationsleiste eingetragen");
+					continue;
+			}
+			navList.add(navItem);
+		}
+		
+		final ListAdapter listAdapter = new SimpleAdapter(getActivity(), navList, R.layout.nav_item, FROM, TO);
+		return listAdapter;
+    }
 	
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -72,7 +106,6 @@ public class MainNav extends ListFragment implements OnItemClickListener {
 		// itemPosition: Textposition innerhalb der Liste mit Zaehlung ab 0
 		// itemId = itemPosition bei String-Arrays bzw. = Primaerschluessel bei Listen aus einer DB
 		
-		Log.d(LOG_TAG, "itemPosition = " + itemPosition);
 		Fragment neuesFragment;
 		switch (NavType.valueOf(itemPosition)) {
 			case KUNDEN:
@@ -82,10 +115,10 @@ public class MainNav extends ListFragment implements OnItemClickListener {
 			case BESTELLUNGEN:
 				neuesFragment = new Bestellungen();
 				break;
-			
 			case ARTIKEL:
 				neuesFragment = new Artikel();
 				break;
+				
 			default:
 				return;
 		}

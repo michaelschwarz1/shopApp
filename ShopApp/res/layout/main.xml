@@ -10,8 +10,8 @@
 	<!-- Verhaeltnis zwischen Master und Detail wird auf 1:4 durch layout_weight gesetzt -->
 	<!-- layout_width darf deshalb nicht wirksam sein -->
 	
-	<fragment
-		android:id="@+id/nav"
+    <fragment
+    	android:id="@+id/nav"
     	android:name="de.shop.ui.main.MainNav"
     	android:layout_weight="1"
     	android:layout_width="0dp"

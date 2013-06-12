@@ -11,7 +11,7 @@ import de.shop.R;
 public class Startseite extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		// attachToRoot = false, weil die Verwaltung des Fragments durch die Activity erfolgt
+		// attachToRoot = false, weil die Verwaltung des Fragments durch die Activity Main erfolgt
 		return inflater.inflate(R.layout.startseite, container, false);
 	}
 }
