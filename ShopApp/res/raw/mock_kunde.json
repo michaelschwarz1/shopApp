@@ -1,0 +1,17 @@
+{
+	"pkKunde": 100,
+	"version": 0,
+    "nachname": "Test",
+    "vorname": "Theo",
+    "email": "theo@test.de",
+    "password": "100",
+    "adresse": {
+		"id": 200,
+		"version": 0,
+        "plz": "76133",
+        "ort": "Karlsruhe",
+        "strasse": "Moltkestraße",
+        "hausnr": "31"
+    },
+    "bestellungenUri": "http://localhost:8080/shop/rest/kunden/100/bestellungen",
+}
