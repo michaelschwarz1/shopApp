@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	
 	<!-- Suchfeld -->
-	<item android:id="@+id/suchen"
+<!-- 	<item android:id="@+id/suchen"
           android:title="@string/s_option_suchen"
           android:icon="@drawable/ic_option_suchen"
           android:inputType="number"
@@ -11,7 +11,7 @@
     <item android:id="@+id/edit"
           android:title="@string/s_option_edit"
           android:icon="@drawable/ic_option_edit"
-          android:showAsAction="ifRoom|withText" />
+          android:showAsAction="ifRoom|withText" /> -->
     
 	<item
 		android:id="@+id/einstellungen"

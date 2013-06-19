@@ -50,5 +50,6 @@
     <string name="s_artikel_suche_id">Search article by ID</string>
     <string name="s_artikel_suche_beschreibung">Search by article description</string>
     <string name="s_artikel_create">create article</string>
+    
 	
 </resources>

@@ -17,11 +17,17 @@ public class Artikel implements JsonMappable, Serializable {
 	public String kategorie;
 	public double preis;
 	
-//	public Artikel() {
-//		super();
-//		this.id = id;
-//		this.beschreibung = beschreibung;
-//	}
+	public Artikel(Long id, String beschreibung, String kategorie, int aufLager, Double preis) {
+		super();
+		this.id = id;
+		this.beschreibung = beschreibung;
+		this.kategorie = kategorie;
+		this.aufLager = aufLager;
+		this.preis = preis;
+	}
+	public Artikel(){
+		super();
+	}
 	protected JsonObjectBuilder getJsonObjectBuilder() {
 		return jsonBuilderFactory.createObjectBuilder()
 				                 .add("pkArtikel", id)

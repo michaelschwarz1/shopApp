@@ -100,22 +100,22 @@ public class KundeStammdaten extends Fragment implements OnTouchListener {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-			case R.id.edit:
-				// Evtl. vorhandene Tabs der ACTIVITY loeschen
-		    	getActivity().getActionBar().removeAllTabs();
-		    	
-				final Bundle args = new Bundle(1);
-				args.putSerializable(KUNDE_KEY, kunde);
-				
-				final Fragment neuesFragment = new KundeEdit();
-				neuesFragment.setArguments(args);
-				
-				// Kein Name (null) fuer die Transaktion, da die Klasse BackStageEntry nicht verwendet wird
-				getFragmentManager().beginTransaction()
-				                    .replace(R.id.details, neuesFragment)
-				                    .addToBackStack(null)  
-				                    .commit();
-				return true;
+//			case R.id.edit:
+//				// Evtl. vorhandene Tabs der ACTIVITY loeschen
+//		    	getActivity().getActionBar().removeAllTabs();
+//		    	
+//				final Bundle args = new Bundle(1);
+//				args.putSerializable(KUNDE_KEY, kunde);
+//				
+//				final Fragment neuesFragment = new KundeEdit();
+//				neuesFragment.setArguments(args);
+//				
+//				// Kein Name (null) fuer die Transaktion, da die Klasse BackStageEntry nicht verwendet wird
+//				getFragmentManager().beginTransaction()
+//				                    .replace(R.id.details, neuesFragment)
+//				                    .addToBackStack(null)  
+//				                    .commit();
+//				return true;
 				
 			case R.id.einstellungen:
 				getFragmentManager().beginTransaction()

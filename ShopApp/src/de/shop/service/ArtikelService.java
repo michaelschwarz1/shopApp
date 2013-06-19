@@ -197,48 +197,48 @@ public class ArtikelService extends Service {
 
 		/**
 		 */
-//		public HttpResponse<Artikel> createArtikel(Artikel artikel, final Context ctx) {
-//			// (evtl. mehrere) Parameter vom Typ "AbstractArtikel", Resultat vom Typ "void"
-//			final AsyncTask<Artikel, Void, HttpResponse<Artikel>> createArtikelTask = new AsyncTask<Artikel, Void, HttpResponse<Artikel>>() {
-//				@Override
-//	    		protected void onPreExecute() {
-//					progressDialog = showProgressDialog(ctx);
-//				}
-//				
-//				@Override
-//				// Neuer Thread, damit der UI-Thread nicht blockiert wird
-//				protected HttpResponse<Artikel> doInBackground(Artikel... artikel) {
-//					final Artikel kartikel= artikel[0];
-//		    		final String path = ARTIKEL_PATH;
-//		    		Log.v(LOG_TAG, "path = " + path);
-//
-//		    		final HttpResponse<Artikel> result = mock
-//                                                               ? Mock.createArtikel(artikel)
-//                                                               : WebServiceClient.postJson(artikel, path);
-//		    		
-//					Log.d(LOG_TAG + ".AsyncTask", "doInBackground: " + result);
-//					return result;
-//				}
-//				
-//				@Override
-//	    		protected void onPostExecute(HttpResponse<Artikel> unused) {
-//					progressDialog.dismiss();
-//	    		}
-//			};
-//			
-//			createArtikelTask.execute(artikel);
-//			HttpResponse<Artikel> response = null; 
-//			try {
-//				response = createArtikelTask.get(timeout, SECONDS);
-//			}
-//	    	catch (Exception e) {
-//	    		throw new InternalShopError(e.getMessage(), e);
-//			}
-//			
-//			artikel.id = Long.valueOf(response.content);
-//			final HttpResponse<Artikel> result = new HttpResponse<Artikel>(response.responseCode, response.content, Artikel);
-//			return result;
-//	    }
+		public HttpResponse<Artikel> createArtikel(Artikel artikel, final Context ctx) {
+			// (evtl. mehrere) Parameter vom Typ "AbstractArtikel", Resultat vom Typ "void"
+			final AsyncTask<Artikel, Void, HttpResponse<Artikel>> createArtikelTask = new AsyncTask<Artikel, Void, HttpResponse<Artikel>>() {
+				@Override
+	    		protected void onPreExecute() {
+					progressDialog = showProgressDialog(ctx);
+				}
+				
+				@Override
+				// Neuer Thread, damit der UI-Thread nicht blockiert wird
+				protected HttpResponse<Artikel> doInBackground(Artikel... artikelList) {
+					final Artikel artikel= artikelList[0];
+		    		final String path = ARTIKEL_PATH;
+		    		Log.v(LOG_TAG, "path = " + path);
+
+		    		final HttpResponse<Artikel> result = mock
+                                                               ? Mock.createArtikel(artikel)
+                                                               : WebServiceClient.postJson(artikel, path);
+		    		
+					Log.d(LOG_TAG + ".AsyncTask", "doInBackground: " + result);
+					return result;
+				}
+				
+				@Override
+	    		protected void onPostExecute(HttpResponse<Artikel> unused) {
+					progressDialog.dismiss();
+	    		}
+			};
+			
+			createArtikelTask.execute(artikel);
+			HttpResponse<Artikel> response = null; 
+			try {
+				response = createArtikelTask.get(timeout, SECONDS);
+			}
+	    	catch (Exception e) {
+	    		throw new InternalShopError(e.getMessage(), e);
+			}
+			
+			artikel.id = Long.valueOf(response.content);
+			final HttpResponse<Artikel> result = new HttpResponse<Artikel>(response.responseCode, response.content, artikel);
+			return result;
+	    }
 		
 		/**
 		 */

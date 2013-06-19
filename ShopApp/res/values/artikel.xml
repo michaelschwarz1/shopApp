@@ -6,6 +6,7 @@
 	<string name="a_artikel_id">article No.</string>
     <string name="a_beschreibung">Description</string>
     <string name="a_beschreibung_hint">Enter the description</string>
+    <string name="a_beschreibung_fehlt">No Descritpion</string>
     <string name="a_stammdaten">Master data</string>
     <string name="a_bestellungen">Orders</string>
     <string name="a_bestellungen_kunde_id">article %d:</string>
@@ -15,10 +16,15 @@
     <string name="a_datum">Date</string>
     <string name="a_karte">Map</string>
     <string name="a_kategorie">Category</string>
+    <string name="a_kategorie_fehlt">No Category</string>
     <string name="a_preis">price</string>
+    <string name="a_preis_fehlt">No Price</string>
     <string name="a_kunden_liste_title">articles</string>
     <string name="a_hint_kundenname">article name</string>
     <string name="a_kunde_not_found">No article found with id %s.</string>
     <string name="a_artikel_not_found">No articles found.</string>
+    <string name="a_aufLager">On Stock</string>
+    <string name="a_auLager_fehlt">No Stock</string>
+    <string name="a_artikel_nicht_erstellt">Article not created</string>
     
 </resources>

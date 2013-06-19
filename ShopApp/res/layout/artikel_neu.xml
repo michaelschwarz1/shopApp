@@ -1,0 +1,101 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+	tools:context=".ui.main.Main" >
+
+	<TableLayout
+	    android:layout_width="match_parent"
+		android:layout_height="wrap_content" >
+	
+		<TableRow>
+	
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/a_beschreibung" />
+			
+			<EditText
+			    style="@style/RechteSpalteText"
+				android:id="@+id/beschreibung_edt"
+				android:inputType="text"
+				android:imeActionId="@+id/ime_anlegen"
+				android:imeActionLabel="@string/s_neu_anlegen"
+				android:imeOptions="actionUnspecified"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"/>
+	
+		</TableRow>
+		
+		<TableRow>
+		
+	        <TextView
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:text="@string/a_kategorie" />
+	        
+	        <EditText
+	        	style="@style/RechteSpalteText"
+	            android:id="@+id/kategorie_edt"
+	            android:inputType="text"
+	            android:imeActionId="@+id/ime_anlegen"
+				android:imeActionLabel="@string/s_neu_anlegen"
+				android:imeOptions="actionUnspecified"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:textIsSelectable="false" />
+	
+	    </TableRow>
+	    
+	    <TableRow>
+	
+	        <TextView
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:text="@string/a_preis" />
+	        
+	        <EditText
+	        	style="@style/RechteSpalteText"
+	            android:id="@+id/preis_edt"
+	            android:imeActionId="@+id/ime_anlegen"
+				android:imeActionLabel="@string/s_neu_anlegen"
+				android:imeOptions="actionUnspecified"
+	            android:inputType="numberDecimal"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:textIsSelectable="true" />
+	
+	    </TableRow>
+	    
+	    	    <TableRow>
+	
+	        <TextView
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:text="@string/a_aufLager" />
+	        
+	       <EditText
+	       		style="@style/RechteSpalteText"
+	            android:id="@+id/aufLager_edt"
+	            android:imeActionId="@+id/ime_anlegen"
+				android:imeActionLabel="@string/s_neu_anlegen"
+				android:imeOptions="actionUnspecified"
+	            android:inputType="number"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:textIsSelectable="true" />
+	
+	    </TableRow>
+	    
+	    
+	</TableLayout>
+	
+	 <Button
+		android:id="@+id/btn_artikel_create"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="50dp"
+		android:text="@string/s_neu_anlegen" />
+
+</LinearLayout>
