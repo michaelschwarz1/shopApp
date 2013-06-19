@@ -1,17 +1,54 @@
 package de.shop.data;
 
+import static de.shop.ShopApp.jsonBuilderFactory;
+
 import java.io.Serializable;
 
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
 
-public class Artikel implements Serializable {
+
+public class Artikel implements JsonMappable, Serializable {
 	private static final long serialVersionUID = -2998318045100459809L;
 	public Long id;
 	public String beschreibung;
+	public int version;
+	public int aufLager;
+	public String kategorie;
+	public double preis;
 	
-	public Artikel(Long id, String beschreibung) {
-		super();
-		this.id = id;
-		this.beschreibung = beschreibung;
+//	public Artikel() {
+//		super();
+//		this.id = id;
+//		this.beschreibung = beschreibung;
+//	}
+	protected JsonObjectBuilder getJsonObjectBuilder() {
+		return jsonBuilderFactory.createObjectBuilder()
+				                 .add("pkArtikel", id)
+			                     .add("version", version)
+			                     .add("beschreibung", beschreibung)
+			                     .add("preis", preis)
+			                     .add("kategorie", kategorie)
+			                     .add("aufLager", aufLager);
+	}
+	
+	@Override
+	public JsonObject toJsonObject() {
+		return getJsonObjectBuilder().build();
+	}
+
+	public void fromJsonObject(JsonObject jsonObject) {
+		id = Long.valueOf(jsonObject.getJsonNumber("pkArtikel").longValue());
+	    version = jsonObject.getInt("version");
+		beschreibung = jsonObject.getString("beschreibung");
+		preis = jsonObject.getJsonNumber("preis").doubleValue();
+		kategorie = jsonObject.getString("kategorie");
+		aufLager = jsonObject.getInt("aufLager");
+	}
+	
+	@Override
+	public void updateVersion() {
+		version++;
 	}
 	
 	@Override

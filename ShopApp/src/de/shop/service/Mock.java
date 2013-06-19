@@ -30,6 +30,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import de.shop.R;
 import de.shop.ShopApp;
+import de.shop.data.Artikel;
 import de.shop.data.Bestellung;
 import de.shop.data.Kunde;
 import de.shop.util.InternalShopError;
@@ -270,6 +271,38 @@ final class Mock {
 		final HttpResponse<Bestellung> result = new HttpResponse<Bestellung>(HTTP_OK, jsonObject.toString(), bestellung);
 		Log.d(LOG_TAG, result.resultObject.toString());
 		return result;
+	}
+    
+    static HttpResponse<Artikel> sucheArtikelById(Long id) {
+    	if (id <= 0 || id >= 1000) {
+    		return new HttpResponse<Artikel>(HTTP_NOT_FOUND, "Kein Artikel gefunden mit ID " + id);
+    	}
+    	
+    	int dateinameId;
+    	
+    		dateinameId = R.raw.mock_artikel;
+  
+    	
+    	final String jsonStr = read(dateinameId);
+    	JsonReader jsonReader = null;
+    	JsonObject jsonObject;
+    	try {
+    		jsonReader = jsonReaderFactory.createReader(new StringReader(jsonStr));
+    		jsonObject = jsonReader.readObject();
+    	}
+    	finally {
+    		if (jsonReader != null) {
+    			jsonReader.close();
+    		}
+    	}
+    	
+    	final Artikel artikel = new Artikel();
+
+    	artikel.fromJsonObject(jsonObject);
+    	artikel.id = id;
+		
+    	final HttpResponse<Artikel> result = new HttpResponse<Artikel>(HTTP_OK, jsonObject.toString(), artikel);
+    	return result;
 	}
     
     private Mock() {}

@@ -46,6 +46,9 @@
     <string name="s_not_connected">No Network available</string>
     <string name="s_mock">ATTENTION: offline test mode</string>
     <string name="k_name">Name</string>
-     <string name="s_nav_artikel">Article</string>
+    <string name="s_nav_artikel">Article</string>
+    <string name="s_artikel_suche_id">Search article by ID</string>
+    <string name="s_artikel_suche_beschreibung">Search by article description</string>
+    <string name="s_artikel_create">create article</string>
 	
 </resources>

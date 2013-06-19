@@ -1,0 +1,78 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".ui.main.Main" >
+
+	<TableLayout
+	    android:layout_width="match_parent"
+		android:layout_height="wrap_content" >
+	
+		<TableRow>
+	
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/a_artikel_id" />
+			
+			<TextView
+			    style="@style/RechteSpalteText"
+				android:id="@+id/artikel_id"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textIsSelectable="false" />
+	
+		</TableRow>
+		
+		<TableRow>
+	
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/a_beschreibung" />
+			
+			<TextView
+			    style="@style/RechteSpalteText"
+				android:id="@+id/beschreibung_txt"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textIsSelectable="true" />
+	
+		</TableRow>
+		
+		<TableRow>
+		
+	        <TextView
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:text="@string/a_kategorie" />
+	        
+	        <TextView
+	        	style="@style/RechteSpalteText"
+	            android:id="@+id/kategorie"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:textIsSelectable="false" />
+	
+	    </TableRow>
+	    
+	    <TableRow>
+	
+	        <TextView
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:text="@string/a_preis" />
+	        
+	        <TextView
+	        	style="@style/RechteSpalteText"
+	            android:id="@+id/preis"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:textIsSelectable="true" />
+	
+	    </TableRow>
+	    
+	    
+	</TableLayout>
+
+</ScrollView>

@@ -28,17 +28,17 @@ public class Bestellung implements JsonMappable, Serializable {
 	@Override
 	public JsonObject toJsonObject() {
 		return jsonBuilderFactory.createObjectBuilder()
-		                         .add("id", id)
+		                         .add("pkBestellung", id)
 		                         .add("version", version)
-		                         .add("datum", datum.getTime())
+		                         .add("erzeugt", datum.getTime())
 		                         .build();
 	}
 	
 	@Override
 	public void fromJsonObject(JsonObject jsonObject) {
-		id = Long.valueOf(jsonObject.getJsonNumber("id").longValue());
+		id = Long.valueOf(jsonObject.getJsonNumber("pkBestellung").longValue());
 		version = jsonObject.getInt("version");
-		datum = new Date(jsonObject.getJsonNumber("datum").longValue());
+		datum = new Date(jsonObject.getJsonNumber("erzeugt").longValue());
 	}
 	
 	@Override
