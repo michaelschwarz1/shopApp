@@ -67,7 +67,7 @@ public class KundeBestellungen extends Fragment implements OnItemClickListener, 
 		final TextView kundeTxt = (TextView) view.findViewById(R.id.bestellungen_kunde_id);
 		kundeTxt.setText(getString(R.string.k_bestellungen_kunde_id, kunde.id));
 		txtBestellungId = (TextView) view.findViewById(R.id.bestellung_id);
-		txtBestellungDatum = (TextView) view.findViewById(R.id.datum);
+//		txtBestellungDatum = (TextView) view.findViewById(R.id.datum);
 		
 		final Activity activity = getActivity();
 		if (Main.class.equals(activity.getClass())) {
@@ -174,7 +174,7 @@ public class KundeBestellungen extends Fragment implements OnItemClickListener, 
 		}
 		
 		txtBestellungId.setText(String.valueOf(bestellung.id));
-		final String datumStr = bestellung.datum == null ? "" : DateFormat.getDateFormat(getActivity()).format(bestellung.datum);
-    	txtBestellungDatum.setText(datumStr);
+//		final String datumStr = bestellung.datum == null ? "" : DateFormat.getDateFormat(getActivity()).format(bestellung.datum);
+//    	txtBestellungDatum.setText(datumStr);
 	}
 }

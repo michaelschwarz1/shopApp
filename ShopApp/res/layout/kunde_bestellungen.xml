@@ -47,7 +47,7 @@
 		
 			</TableRow>
 			
-			<TableRow>
+<!--  			<TableRow>
 		
 				<TextView
 					android:layout_width="match_parent"
@@ -61,7 +61,7 @@
 					android:textIsSelectable="false"
 					android:paddingLeft="5dp" />
 		
-			</TableRow>
+			</TableRow>  -->
 		
 		</TableLayout>
     

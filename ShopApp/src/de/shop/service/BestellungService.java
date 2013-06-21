@@ -75,6 +75,7 @@ public class BestellungService extends Service {
 			HttpResponse<Bestellung> result = null;
 	    	try {
 	    		result = getBestellungByIdTask.get(timeout, SECONDS);
+	    		Log.v(LOG_TAG + "TEST:", "TEST " +result.toString());
 			}
 	    	catch (Exception e) {
 	    		throw new InternalShopError(e.getMessage(), e);

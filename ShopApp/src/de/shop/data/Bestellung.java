@@ -30,7 +30,6 @@ public class Bestellung implements JsonMappable, Serializable {
 		return jsonBuilderFactory.createObjectBuilder()
 		                         .add("pkBestellung", id)
 		                         .add("version", version)
-		                         .add("erzeugt", datum.getTime())
 		                         .build();
 	}
 	
@@ -38,7 +37,6 @@ public class Bestellung implements JsonMappable, Serializable {
 	public void fromJsonObject(JsonObject jsonObject) {
 		id = Long.valueOf(jsonObject.getJsonNumber("pkBestellung").longValue());
 		version = jsonObject.getInt("version");
-		datum = new Date(jsonObject.getJsonNumber("erzeugt").longValue());
 	}
 	
 	@Override
@@ -48,6 +46,6 @@ public class Bestellung implements JsonMappable, Serializable {
 
 	@Override
 	public String toString() {
-		return "Bestellung [id=" + id + ", datum=" + datum + "]";
+		return "Bestellung [id=" + id +  "]";
 	}
 }
