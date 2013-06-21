@@ -85,10 +85,10 @@ public class MainNav extends ListFragment implements OnItemClickListener, OnMenu
 					navItem.put(TEXT, getString(R.string.s_nav_kunden));
 					break;
 				
-				case BESTELLUNGEN:
-					navItem.put(ICON, R.drawable.ic_bestellungen);
-					navItem.put(TEXT, getString(R.string.s_nav_bestellungen));
-					break;
+//				case BESTELLUNGEN:
+//					navItem.put(ICON, R.drawable.ic_bestellungen);
+//					navItem.put(TEXT, getString(R.string.s_nav_bestellungen));
+//					break;
 					
 				case ARTIKEL:
 					navItem.put(ICON, R.drawable.ic_artikel);
@@ -170,13 +170,13 @@ public class MainNav extends ListFragment implements OnItemClickListener, OnMenu
 				neuesFragment = new KundenSucheNachname();
 				break;
 
-			case R.id.kunden_delete:
-				neuesFragment = new KundeDelete();
-				break;
+//			case R.id.kunden_delete:
+//				neuesFragment = new KundeDelete();
+//				break;
 
-			case R.id.bestellungen_neu:
-				neuesFragment = new BestellungenNeu();
-				break;
+//			case R.id.bestellungen_neu:
+//				neuesFragment = new BestellungenNeu();
+//				break;
 				
 			case R.id.artikel_suche_id:
 				neuesFragment = new ArtikelSucheId();
