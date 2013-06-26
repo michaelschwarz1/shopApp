@@ -104,7 +104,7 @@ public class KundeSucheId extends Fragment implements OnClickListener, OnEditorA
 		
 		final Long kundeId = Long.valueOf(kundeIdStr);
 		final Main mainActivity = (Main) getActivity();
-		final HttpResponse<? extends Kunde> result = mainActivity.getKundeServiceBinder().sucheKundeById(kundeId, ctx);
+		final HttpResponse<Kunde> result = mainActivity.getKundeServiceBinder().sucheKundeById(kundeId, ctx);
 
 		if (result.responseCode == HTTP_NOT_FOUND) {
 			final String msg = getString(R.string.k_kunde_not_found, kundeIdStr);

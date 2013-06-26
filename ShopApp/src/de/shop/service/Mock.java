@@ -310,7 +310,7 @@ final class Mock {
     	artikel.id = Long.valueOf(artikel.beschreibung.length());  // Anzahl der Buchstaben des Nachnamens als emulierte neue ID
     	Log.d(LOG_TAG, "createArtikel: " + artikel);
     	Log.d(LOG_TAG, "createArtikel: " + artikel.toJsonObject());
-    	final HttpResponse<Artikel> result = new HttpResponse<Artikel>(HTTP_CREATED, ARTIKEL_PATH + "/1", artikel);
+    	final HttpResponse<Artikel> result = new HttpResponse<Artikel>(HTTP_CREATED, ARTIKEL_PATH + "/100", artikel);
     	return result;
     }
     

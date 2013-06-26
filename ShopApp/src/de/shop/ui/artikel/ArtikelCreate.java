@@ -125,8 +125,8 @@ public class ArtikelCreate extends Fragment implements OnClickListener, OnEditor
 		
 		Log.v(LOG_TAG, "!!! anlegen() !!!");
 		final Main mainActivity = (Main) getActivity();
-		final HttpResponse<? extends Artikel> result = mainActivity.getArtikelServiceBinder().createArtikel(neuerArtikel, ctx);
-		
+		final HttpResponse<Artikel> result = mainActivity.getArtikelServiceBinder().createArtikel(neuerArtikel, ctx);
+		Log.v(LOG_TAG, "!!! Test() !!!");
 		if (result.responseCode != HTTP_CREATED) {
 			final String msg = getString(R.string.a_artikel_nicht_erstellt);
 			edtBeschreibung.setError(msg);

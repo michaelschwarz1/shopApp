@@ -235,7 +235,7 @@ public class ArtikelService extends Service {
 	    		throw new InternalShopError(e.getMessage(), e);
 			}
 			
-			artikel.id = Long.valueOf(response.content);
+			artikel.id = Long.valueOf(response.content.length());
 			final HttpResponse<Artikel> result = new HttpResponse<Artikel>(response.responseCode, response.content, artikel);
 			return result;
 	    }
