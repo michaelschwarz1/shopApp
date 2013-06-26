@@ -30,8 +30,8 @@ import de.shop.ui.kunde.KundenSucheNachname;
 public class MainNav extends ListFragment implements OnItemClickListener, OnMenuItemClickListener  {
 	public enum NavType {
 		KUNDEN(0),
-		BESTELLUNGEN(1),
-		ARTIKEL(2);
+		ARTIKEL(1);
+//		BESTELLUNGEN(2),
 	
 		
 		
@@ -48,8 +48,8 @@ public class MainNav extends ListFragment implements OnItemClickListener, OnMenu
 		public static NavType valueOf(int value) {
 			switch (value) {
 				case 0:	return KUNDEN;
-				case 1:	return BESTELLUNGEN;
-				case 2: return ARTIKEL;
+//				case 2:	return BESTELLUNGEN;
+				case 1: return ARTIKEL;
 				default: return KUNDEN;
 			}
 		}
@@ -131,14 +131,14 @@ public class MainNav extends ListFragment implements OnItemClickListener, OnMenu
 				popup = kundenPopup;
 				break;
 				
-			case BESTELLUNGEN:
-				if (bestellungenPopup == null) {
-					bestellungenPopup = new PopupMenu(getActivity(), view);
-					bestellungenPopup.inflate(R.menu.bestellungen_popup);
-					bestellungenPopup.setOnMenuItemClickListener(this);
-				}
-				popup = bestellungenPopup;
-				break;
+//			case BESTELLUNGEN:
+//				if (bestellungenPopup == null) {
+//					bestellungenPopup = new PopupMenu(getActivity(), view);
+//					bestellungenPopup.inflate(R.menu.bestellungen_popup);
+//					bestellungenPopup.setOnMenuItemClickListener(this);
+//				}
+//				popup = bestellungenPopup;
+//				break;
 				
 			case ARTIKEL:
 				if (artikelPopup == null){

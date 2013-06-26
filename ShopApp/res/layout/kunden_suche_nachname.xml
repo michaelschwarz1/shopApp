@@ -12,7 +12,7 @@
 	    android:completionHint="@string/k_nachname_auswahl_hint"
 	    android:completionThreshold="1"
 	    android:hint="@string/k_nachname_hint"
-	    android:inputType="textCapCharacters"
+	    android:inputType="text"
    	    android:imeActionId="@+id/ime_suchen"
         android:imeActionLabel="@string/s_action_suchen_short"
         android:imeOptions="actionUnspecified"
