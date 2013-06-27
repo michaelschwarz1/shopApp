@@ -234,8 +234,12 @@ public class ArtikelService extends Service {
 	    	catch (Exception e) {
 	    		throw new InternalShopError(e.getMessage(), e);
 			}
-			
+			if(mock){
 			artikel.id = Long.valueOf(response.content.length());
+			}
+			else{
+				artikel.id = Long.valueOf(response.content);
+			}
 			final HttpResponse<Artikel> result = new HttpResponse<Artikel>(response.responseCode, response.content, artikel);
 			return result;
 	    }
